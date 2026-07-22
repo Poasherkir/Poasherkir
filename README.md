@@ -1,9 +1,9 @@
 <!--
-  ═══════════════════════════════════════════════════════════════
-  GitHub Profile README — Poasherkir (Malik Boudine)
-  Every line marked  <!-- EDIT -->  is a placeholder you should change.
+  ===============================================================
+  GitHub Profile README - Poasherkir (Malik Boudine)
+  Search this file for the word EDIT to find every placeholder.
   Setup instructions live in SETUP.md
-  ═══════════════════════════════════════════════════════════════
+  ===============================================================
 -->
 
 <!-- ─────────────  HEADER  ───────────── -->
