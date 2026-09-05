@@ -9,7 +9,7 @@ For reference, the reason the name matters: GitHub only renders a README on your
 profile page if it lives in a **public repository named exactly your username**.
 That's why this one is called `Poasherkir` and not `portfolio`.
 
-The steps below are the parts I can't do from here — they need your browser.
+The steps below all need the GitHub web UI — they can't be done from the CLI.
 
 ## 3. Turn on private contribution counting
 
@@ -41,13 +41,11 @@ mode and `profile-green.svg` in light mode; nine other variants sit in the same
 folder if you want a different look — just swap the filenames in the `<picture>`
 block.
 
-## 5. What still says EDIT
+## 5. The one thing left to fill in
 
-Only one spot is left marked:
-
-| Where | What to change |
-| :-- | :-- |
-| Let's Connect | LinkedIn / X badges are commented out. Uncomment and fill in only the ones you actually use. |
+**Let's Connect** — the LinkedIn and X badges sit commented out in the README.
+Uncomment and fill in only the ones actually in use; a badge pointing at
+`linkedin.com/in/YOUR-HANDLE` is worse than no badge.
 
 There's also a commented list in **Tech Stack** naming the badges that aren't shown
 (Java, Ruby, Vue, NestJS, TensorFlow, NumPy, Pandas, Seaborn, AWS, GCP, Azure,
@@ -65,22 +63,27 @@ click **Customize your pins** and choose up to six:
 `delivery-os` · `bac-archive` · `portfolio` · `Playlist` · `wordle-solver` · `qahwa-books`
 
 Pins pull their own description and language straight from each repo, so they never
-drift out of date the way a hand-written list does. Two of those repos have no
-description at all (`Playlist`, `qahwa-books`) — a pinned card with a blank subtitle
-wastes the slot, so fill those in at the same time (repo → **About** → gear icon).
+drift out of date the way a hand-written list does. That also means a repo with a
+blank description wastes its slot — `wordle-solver` is the last one still missing
+a description (repo → **About** → gear icon).
 
-## 7. Add topics to the repos that have none
+Note that `Poasherkir` — this repo — is worth *unpinning*. It holds the profile
+README, not a project, so it spends a slot showing nothing built.
 
-`portfolio` and `bac-archive` have good topic lists. These three have none, which
-costs you GitHub search visibility for free:
+## 7. Repo topics ✅
 
-| Repo | Suggested topics |
+All six repos now carry topics, which is free GitHub search visibility:
+
+| Repo | Topics |
 | :-- | :-- |
 | `delivery-os` | `flutter` `dart` `offline-first` `riverpod` `drift` `sqlcipher` `algeria` `rtl` |
-| `Playlist` | `powershell` `youtube-dl` `windows` `downloader` |
-| `wordle-solver` | `c` `wordle` `solver` `algorithms` |
+| `bac-archive` | `flutter` `supabase` `offline-first` `arabic` `rtl` `pdf` `education` `android` `riverpod` |
+| `portfolio` | `nextjs` `react-three-fiber` `threejs` `typescript` `tailwindcss` `webaudio` `portfolio` |
+| `Playlist` | `youtube` `yt-dlp` `powershell` `windows` `downloader` `ffmpeg` |
+| `qahwa-books` | `python` `web-scraping` `beautifulsoup` `arabic` `books` `cli` |
+| `wordle-solver` | `c` `wordle` `solver` `algorithms` `makefile` |
 
-Repo → **About** (gear icon, top right) → **Topics**.
+Add more at repo → **About** (gear icon, top right) → **Topics**.
 
 ---
 
@@ -109,7 +112,7 @@ first written have since broken, and one that was broken now works.
 | :-- | :-- |
 | ~~Stats + top-langs~~ (official `github-readme-stats.vercel.app`) | ❌ **503 DEPLOYMENT_PAUSED** |
 | ~~Stats mirror~~ (`…-sigma-five.vercel.app`) | ❌ 200 with an error card: *"Maximum retries exceeded — add PAT_1"* |
-| ~~Repo pin cards~~ (same host as stats) | ❌ 503 — this is why Featured Projects is hand-written |
+| ~~Repo pin cards~~ (same host as stats) | ❌ 503 — image repo cards are not an option |
 | ~~Activity graph~~ (`github-readme-activity-graph.vercel.app`) | ❌ **402** — Vercel spending limit exhausted |
 | ~~Trophy wall~~ (`github-profile-trophy.vercel.app`) | ❌ **402** |
 | ~~Contributor stats~~ | ❌ **402** |
@@ -120,8 +123,8 @@ as a broken or error image to a human. The stats mirror is the worst offender: a
 
 ### The capsule-render ampersand trap
 
-Worth writing down, because it cost a round trip and no link checker will ever catch
-it: **never put a raw `&` (`%26`) in a capsule-render `text=` or `desc=` parameter.**
+Worth writing down, because no link checker will ever catch it:
+**never put a raw `&` (`%26`) in a capsule-render `text=` or `desc=` parameter.**
 
 capsule-render interpolates those values into the SVG without escaping them, so
 `%26` comes back as a bare `&` — an invalid XML token. Browsers reject the entire
@@ -181,11 +184,11 @@ For the record, image-based repo cards aren't an option either way: the
 `github-readme-stats` pin endpoint is 503, so those render broken for every visitor.
 
 **A "How I Work" section instead.** Pinned repos already show what was built. What a
-reader can't get by clicking through is how you approach it — offline-first defaults,
-RTL from the first screen, a domain layer that doesn't import the framework, strict
-analyzer gates. Every line there is falsifiable against the code; keep it that way if
-you edit it, because vague principles ("passionate about clean code") are worse than
-no section at all.
+reader can't get by clicking through is the approach — offline-first defaults, RTL
+from the first screen, a domain layer that doesn't import the framework, strict
+analyzer gates. Every line there is falsifiable against the code, and it has to stay
+that way: vague principles ("passionate about clean code") are worse than no section
+at all.
 
 **The stack is trimmed to what's in the repos.** Every badge is backed by shipped
 code. A wall of sixty logos where four are real is the single most common way a
@@ -196,7 +199,7 @@ self-assigned and every experienced reader knows it. The language cards say the 
 thing with real data.
 
 **Skipped: WakaTime and Spotify.** Both need external accounts plus a token in repo
-secrets. Worth adding once you're coding daily — say the word and I'll wire them up.
+secrets. Worth revisiting once the daily coding hours are worth showing.
 
 **Theme awareness.** The snake and the 3D calendar both use `<picture>` with
 `prefers-color-scheme`, so light-mode visitors don't get a dark rectangle floating

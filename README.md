@@ -214,9 +214,9 @@ right to left.
 </p>
 
 <!--
-  EDIT: add your other profiles here once you want them public. Left out rather
-  than shipping dead placeholder links — a badge pointing at
-  linkedin.com/in/YOUR-HANDLE is worse than no badge.
+  Other profiles go here once they're worth making public. Left out rather than
+  shipping dead placeholder links — a badge pointing at linkedin.com/in/YOUR-HANDLE
+  is worse than no badge.
 
   <a href="https://linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0D1117" alt="LinkedIn" /></a>
   <a href="https://x.com/YOUR-HANDLE"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white&labelColor=0D1117" alt="X" /></a>
