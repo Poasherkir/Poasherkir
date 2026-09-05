@@ -43,24 +43,31 @@ block.
 
 ## 5. What still says EDIT
 
-The README is now filled in from your real repos, so only two spots are left marked:
+Only one spot is left marked:
 
 | Where | What to change |
 | :-- | :-- |
-| Currently Building | Three rows with live status. Update them when a milestone moves — this is the section return visitors re-read. |
 | Let's Connect | LinkedIn / X badges are commented out. Uncomment and fill in only the ones you actually use. |
 
-There's also a commented list in **Tech Stack** naming the badges that were removed
-(Java, Ruby, Vue, NestJS, TensorFlow, NumPy, Pandas, Seaborn, Docker, AWS, GCP,
-Azure, MySQL, Solidity). Nothing on this account uses them yet — paste any back if
-that changes.
+There's also a commented list in **Tech Stack** naming the badges that aren't shown
+(Java, Ruby, Vue, NestJS, TensorFlow, NumPy, Pandas, Seaborn, AWS, GCP, Azure,
+MySQL, Solidity). Nothing here uses them yet — paste any back if that changes.
 
-## 6. Pin your best repositories
+## 6. Pin your repositories — this one matters now
 
-The Featured Projects section complements GitHub's own pinning — it doesn't replace
-it. On your profile, click **Customize your pins** and choose:
+The README deliberately contains **no project list**. That work is done by GitHub's
+own pinned repositories, which render directly beneath it.
 
-`delivery-os` · `bac-archive` · `portfolio` · `Playlist` · `wordle-solver`
+That makes pinning load-bearing rather than optional: with nothing pinned, a visitor
+reaches the bottom of the README and sees nothing you've built. On your profile,
+click **Customize your pins** and choose up to six:
+
+`delivery-os` · `bac-archive` · `portfolio` · `Playlist` · `wordle-solver` · `qahwa-books`
+
+Pins pull their own description and language straight from each repo, so they never
+drift out of date the way a hand-written list does. Two of those repos have no
+description at all (`Playlist`, `qahwa-books`) — a pinned card with a blank subtitle
+wastes the slot, so fill those in at the same time (repo → **About** → gear icon).
 
 ## 7. Add topics to the repos that have none
 
@@ -111,6 +118,30 @@ Three of these answer with an HTTP status a link checker calls fine while render
 as a broken or error image to a human. The stats mirror is the worst offender: a
 `200 OK` SVG whose only content is the words "Something went wrong".
 
+### The capsule-render ampersand trap
+
+Worth writing down, because it cost a round trip and no link checker will ever catch
+it: **never put a raw `&` (`%26`) in a capsule-render `text=` or `desc=` parameter.**
+
+capsule-render interpolates those values into the SVG without escaping them, so
+`%26` comes back as a bare `&` — an invalid XML token. Browsers reject the entire
+document and render the alt text; `curl` reports a perfectly healthy `200` with a
+2.6 KB body that looks like valid SVG. That's exactly what happened to the header
+banner: it passed every status check and was still broken on the live page.
+
+The tell, if a banner ever renders as alt text again:
+
+```bash
+curl -s "<the capsule-render url>" -o /tmp/h.svg
+python -c "import xml.dom.minidom;xml.dom.minidom.parse('/tmp/h.svg');print('XML OK')"
+```
+
+`not well-formed (invalid token)` means an unescaped character got through. Reword to
+avoid it — the current header uses "Fullstack and Mobile Developer" for this reason.
+The same applies to `<`, `>` and `"`.
+
+### The typing SVG
+
 **The typing SVG** is the one soft spot left. It serves correctly but starts
 refusing connections after a handful of requests in quick succession. A visitor
 loading your profile once is well inside its limits; it's automated testing that
@@ -140,10 +171,21 @@ The trophy wall can be revived the same way by deploying `ryo-ma/github-profile-
 
 ## 9. Notes on some choices
 
-**Featured Projects is hand-written, not image cards.** The pin-card service is down
-(503), so image cards would render broken for every visitor. Hand-written links also
-carry more information — stack, status, live URLs — and read properly on a phone,
-where a 495px-wide SVG card does not.
+**No project list in the README.** GitHub renders your pinned repositories directly
+below it, and those cards keep their own descriptions, languages and star counts
+current. A hand-maintained list beside them is a second copy to keep in sync, and
+it's always the copy that goes stale. The README answers *who* and *how*; the pins
+answer *what*. See step 6 — this only works if you actually pin.
+
+For the record, image-based repo cards aren't an option either way: the
+`github-readme-stats` pin endpoint is 503, so those render broken for every visitor.
+
+**A "How I Work" section instead.** Pinned repos already show what was built. What a
+reader can't get by clicking through is how you approach it — offline-first defaults,
+RTL from the first screen, a domain layer that doesn't import the framework, strict
+analyzer gates. Every line there is falsifiable against the code; keep it that way if
+you edit it, because vague principles ("passionate about clean code") are worse than
+no section at all.
 
 **The stack is trimmed to what's in the repos.** Every badge is backed by shipped
 code. A wall of sixty logos where four are real is the single most common way a

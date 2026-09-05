@@ -2,7 +2,15 @@
   ===============================================================
   GitHub Profile README — Poasherkir (Malik Boudine)
   Setup + maintenance notes live in SETUP.md
-  Every image URL in this file was verified live before committing.
+
+  Deliberately contains no repo listings. GitHub's own pinned
+  repositories render directly below this README and stay current
+  on their own — duplicating them here just creates a second list
+  to keep in sync. Pin your six best instead: SETUP.md step 6.
+
+  NOTE: never put a raw "&" (%26) in a capsule-render text= or
+  desc= parameter. It interpolates unescaped, producing invalid
+  XML that browsers refuse to render while curl still reports 200.
   ===============================================================
 -->
 
@@ -23,10 +31,10 @@
 
 <p align="center">
   <a href="#-about-me">About</a> &nbsp;·&nbsp;
-  <a href="#-featured-projects">Projects</a> &nbsp;·&nbsp;
+  <a href="#-how-i-work">How I Work</a> &nbsp;·&nbsp;
   <a href="#-tech-stack">Stack</a> &nbsp;·&nbsp;
   <a href="#-github-analytics">Analytics</a> &nbsp;·&nbsp;
-  <a href="#-currently-building">Now</a> &nbsp;·&nbsp;
+  <a href="#-contribution-graph">Contributions</a> &nbsp;·&nbsp;
   <a href="#-lets-connect">Contact</a>
 </p>
 
@@ -37,97 +45,53 @@
 
 <img align="right" width="260" src="https://github.com/Poasherkir.png" alt="Malik Boudine avatar" />
 
-Computer Science student in **Algeria** 🇩🇿, building things people actually use on
-bad connections and cheap Android phones.
+Computer Science student in **Algeria** 🇩🇿. I build software for the conditions
+most apps quietly assume away — no signal, a cheap Android phone, a language that
+reads right to left.
 
 - 📱 &nbsp;**Flutter** for mobile — offline-first, encrypted local storage, Arabic RTL as a first-class case rather than an afterthought
 - 🌐 &nbsp;**Next.js + TypeScript** for the web — App Router, React 19, Tailwind, and three.js when the page earns it
-- 🧪 &nbsp;I care about the boring parts: 574 green tests and a clean analyzer beat a demo that only works on my machine
-- 🔒 &nbsp;Some of my production work is closed-source — **Briefing Point Go**, **TechSub** and a set of aviation services that hold real user data. [Case studies here.](https://malikboudine.vercel.app)
-- 🤝 &nbsp;Happy to collaborate on anything offline-first, Flutter, or unreasonably fun 3D on the web
+- 🐍 &nbsp;**Python** for the unglamorous half — importers, scrapers and one-shot migrations that move real archives around
+- 🔒 &nbsp;Some of my production work is closed-source — **Briefing Point Go**, **TechSub** and a set of aviation services that hold real user data. [Case studies on my site.](https://malikboudine.vercel.app)
+- 🤝 &nbsp;Open to internships, freelance work, and collaboration on anything offline-first
 - 📫 &nbsp;**malikboudinee1e@gmail.com**
 
 <br clear="right" />
 
 <br />
 
-<!-- ─────────────  FEATURED PROJECTS  ───────────── -->
-## 🚀 Featured Projects
+<!-- ─────────────  HOW I WORK  ───────────── -->
+## 🧭 How I Work
 
 <!--
-  Written by hand on purpose. The github-readme-stats "pin card" service is
-  returning 503 right now, so image-based repo cards render broken for everyone.
-  These links can't break, they say more, and they read fine on a phone.
+  This section replaces the old project catalogue. Pinned repos already show
+  *what* was built; this says *how*, which is the part a reader can't get by
+  clicking through. Keep it to five, keep every line falsifiable.
 -->
 
-### 🚚 [Delivery OS](https://github.com/Poasherkir/delivery-os) &nbsp;·&nbsp; offline-first Flutter app for Algerian delivery drivers
+**Offline is the default, not the fallback.** &nbsp;I design as if the network will
+never arrive: sync once, then everything reads from local storage. If that storage
+holds anything personal it's encrypted at rest — SQLCipher, not a plaintext SQLite
+file with good intentions.
 
-Takes the daily batch of orders a *livreur* collects, optimizes the route, tracks
-every delivery attempt, and reconciles the money down to the dinar. The driver is
-the user — one person at a door, often with no signal — so **nothing needs the
-network**. Arabic ↔ French with real RTL from the first screen, on an encrypted
-SQLCipher database.
+**Arabic and French from the first screen.** &nbsp;RTL is not a late-stage flag.
+Layouts that get it retrofitted leak somewhere — a stray `EdgeInsets.only(left:)`,
+a chevron pointing the wrong way — and every one of those leaks is a bug a user
+notices before I do.
 
-<sub>**574 tests green** &nbsp;·&nbsp; analyzer clean under <code>--fatal-infos</code> &nbsp;·&nbsp; 20-table schema, migration-tested</sub>
+**The domain layer doesn't know the framework exists.** &nbsp;Business rules import
+nothing from Flutter, nothing from the database, nothing from an HTTP client. It
+keeps the interesting logic testable without a device, and it makes swapping the
+edges cheap.
 
-<p>
-  <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter" />
-  <img src="https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white" alt="Dart" />
-  <img src="https://img.shields.io/badge/Riverpod_3-1C1C1C?style=flat-square" alt="Riverpod 3" />
-  <img src="https://img.shields.io/badge/Drift_%2F_SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="Drift over SQLite" />
-  <img src="https://img.shields.io/badge/SQLCipher-4B0082?style=flat-square" alt="SQLCipher" />
-  <img src="https://img.shields.io/badge/go__router-1C1C1C?style=flat-square" alt="go_router" />
-</p>
+**Tests are a gate, not a chore.** &nbsp;A strict analyzer that fails on infos, a
+schema dumped and migration-tested rather than assumed, and guards that read
+constraints back out of the database so a missing foreign key can't hide. A demo
+that only works on my machine isn't finished.
 
----
-
-### 📚 [BAC Archive — أرشيف البكالوريا](https://github.com/Poasherkir/bac-archive) &nbsp;·&nbsp; every Algerian BAC paper, 2008–2026, fully offline
-
-Exams, official answers and model answers for the **علوم تجريبية** (Experimental
-Sciences) stream. Students sync once, then read every paper with zero internet.
-Three parts on one Supabase backend: the Flutter app, a web admin dashboard so the
-owner never has to touch code, and a Python bulk importer.
-
-<sub>**171 entries / 343 PDFs (~312 MB)** &nbsp;·&nbsp; 19 years &nbsp;·&nbsp; 9 subjects &nbsp;·&nbsp; Arabic RTL, built-in PDF viewer, dark mode</sub>
-
-<p>
-  <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter" />
-  <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white" alt="Supabase" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/Riverpod-1C1C1C?style=flat-square" alt="Riverpod" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
-</p>
-
----
-
-### 🎹 [Portfolio](https://github.com/Poasherkir/portfolio) &nbsp;·&nbsp; a site built around an interactive 3D keyboard
-
-Every keycap is a technology I actually ship with. One long Next.js 15 page that
-argues a case in order — claim, evidence, the single best proof in depth, then the
-rest of the work. Scroll-driven choreography with GSAP + ScrollTrigger, Lenis for
-smooth scroll, and a contact form validated with Zod before it ever reaches the
-mail API.
-
-<sub>🔗 **Live at [malikboudine.vercel.app](https://malikboudine.vercel.app)**</sub>
-
-<p>
-  <img src="https://img.shields.io/badge/Next.js_15-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 15" />
-  <img src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React 19" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Tailwind-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/three.js-000000?style=flat-square&logo=threedotjs&logoColor=white" alt="three.js" />
-  <img src="https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black" alt="GSAP" />
-</p>
-
-<br />
-
-**Also on my GitHub**
-
-| Project | What it is | Built with |
-| :-- | :-- | :-- |
-| [**Playlist**](https://github.com/Poasherkir/Playlist) · [live ↗](https://playlist-downloader-eight.vercel.app) | One-click playlist downloader: a PowerShell engine behind a plain-HTML front end and a `.bat` launcher, so it runs on a stock Windows box with nothing installed. | PowerShell · HTML · Vercel |
-| [**Wordle Solver**](https://github.com/Poasherkir/wordle-solver) | Wordle in C — a playable mode, an automatic solver, and a benchmark that runs the solver across the whole dictionary. | C · Make |
-| [**Qahwa Books**](https://github.com/Poasherkir/qahwa-books) | Scraper and organizer for a book archive: bulk download, then sort by year, author or prize. | Python · HTML |
+**Build for the low end.** &nbsp;Cheap hardware and slow connections are the target,
+not the edge case. Bundle size, cold-start time and battery are features where I'm
+from.
 
 <br />
 
@@ -135,13 +99,12 @@ mail API.
 ## 🧰 Tech Stack
 
 <!--
-  Kept to what's actually in the repos above. A short honest stack reads far
-  better than a wall of 60 logos, and every badge here is backed by shipped code.
+  Kept close to what's actually shipped. A short honest stack reads far better
+  than a wall of sixty logos, and a reader who knows the field can tell.
 
-  Removed from the earlier draft because nothing on this account uses them yet —
-  paste any back if that changes:
+  Not listed, because nothing here uses them yet — paste any back if that changes:
   Java, Ruby, Vue.js, NestJS, TensorFlow, NumPy, Pandas, Seaborn,
-  Docker, AWS, Google Cloud, Azure, MySQL, Solidity.
+  AWS, Google Cloud, Azure, MySQL, Solidity.
 -->
 
 **Languages**
@@ -182,15 +145,18 @@ mail API.
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
 </p>
 
-**Tooling**
+**Tooling & Infrastructure**
 
 <p>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
   <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions" />
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
   <img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell" />
 </p>
+
+<sub>**Learning next** &nbsp;·&nbsp; deeper Flutter architecture &nbsp;·&nbsp; Postgres row-level security &nbsp;·&nbsp; React Three Fiber &nbsp;·&nbsp; container workflows past `docker run`</sub>
 
 <br />
 
@@ -199,9 +165,9 @@ mail API.
 
 <!--
   These point at github-profile-summary-cards, verified serving real numbers.
-  The github-readme-stats mirror this section used before now returns an error
-  card ("Maximum retries exceeded"), and the activity-graph service returns
-  HTTP 402 — both were rendering as broken images. See SETUP.md.
+  Do not swap in github-readme-stats: the official instance is 503, and the
+  community mirror answers 200 with an SVG reading "Maximum retries exceeded".
+  The activity-graph and trophy services are both 402. See SETUP.md step 8.
 -->
 
 <p align="center">
@@ -246,21 +212,6 @@ mail API.
 
 <br />
 
-<!-- ─────────────  NOW  ───────────── -->
-## 🔭 Currently Building
-
-<!-- EDIT: keep these three rows current — this is the section people re-read -->
-
-| | Project | Where it's at |
-| :--: | :-- | :-- |
-| 🚚 | [Delivery OS](https://github.com/Poasherkir/delivery-os) | Milestone **M0 — foundations**, 21 of 22 tasks done. Next up: the bundled wilaya/commune dataset, then ingestion and the money engine. |
-| 📚 | [BAC Archive](https://github.com/Poasherkir/bac-archive) | Shipping — 171 entries across 19 years. Expanding subject coverage. |
-| 🎹 | [Portfolio](https://malikboudine.vercel.app) | Live, and still iterating on the 3D keyboard interaction. |
-
-**Learning next** &nbsp;·&nbsp; deeper Flutter architecture &nbsp;·&nbsp; Postgres &amp; row-level security &nbsp;·&nbsp; React Three Fiber &nbsp;·&nbsp; CI/CD beyond the basics
-
-<br />
-
 <p align="center">
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random developer quote" />
 </p>
@@ -269,6 +220,11 @@ mail API.
 
 <!-- ─────────────  SOCIALS  ───────────── -->
 ## 🤝 Let's Connect
+
+<p align="center">
+  Open to <strong>internships</strong>, <strong>freelance work</strong>, and collaboration on anything offline-first.<br />
+  My work is pinned below — the deployed pieces and the case studies live on my site.
+</p>
 
 <p align="center">
   <a href="https://malikboudine.vercel.app"><img src="https://img.shields.io/badge/Portfolio-00C7FF?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
