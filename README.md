@@ -3,192 +3,175 @@
   GitHub Profile README — Poasherkir (Malik Boudine)
   Setup + maintenance notes live in SETUP.md
 
-  Deliberately contains no repo listings. GitHub's own pinned
-  repositories render directly below this README and stay current
-  on their own — duplicating them here just creates a second list
-  to keep in sync. Pin your six best instead: SETUP.md step 6.
+  PALETTE (keep these three in sync everywhere):
+    violet  #7B2FF7      pink  #F72585      cyan  #00D9FF
+    ground  #0D1117 (GitHub dark)
+  Card services all use theme=radical, which is built on the same
+  pink/cyan pair — swap the theme and the page stops matching.
 
-  NOTE: never put a raw "&" (%26) in a capsule-render text= or
-  desc= parameter. It interpolates unescaped, producing invalid
-  XML that browsers refuse to render while curl still reports 200.
+  Deliberately contains no repo listings. GitHub's pinned
+  repositories render directly below and stay current on their own.
+
+  GOTCHAS, both learned the hard way — see SETUP.md step 8:
+   1. Never put a raw "&" (%26) in a capsule-render text=/desc=.
+      It interpolates unescaped, producing invalid XML that browsers
+      refuse to render while curl still reports a healthy 200.
+   2. readme-typing-svg takes ONE colour. A comma-separated list is
+      silently ignored and it falls back to default blue.
   ===============================================================
 -->
 
 <!-- ─────────────  HEADER  ───────────── -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:2C5364,100:00C7FF&height=200&section=header&text=Malik%20Boudine&fontSize=52&fontColor=ffffff&fontAlignY=35&desc=Fullstack%20and%20Mobile%20Developer%20%C2%B7%20Flutter%20%C2%B7%20Next.js&descAlignY=55&descSize=18&animation=fadeIn" alt="Malik Boudine — Fullstack and Mobile Developer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F0C29,35:302B63,70:F72585,100:00D9FF&height=210&section=header&text=Malik%20Boudine&fontSize=54&fontColor=ffffff&fontAlignY=34&desc=Fullstack%20and%20Mobile%20Developer%20%C2%B7%20Flutter%20%C2%B7%20Next.js&descAlignY=54&descSize=18&animation=fadeIn" alt="Malik Boudine — Fullstack and Mobile Developer" width="100%" />
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=1200&color=00C7FF&center=true&vCenter=true&width=700&lines=Fullstack+and+Mobile+Developer;Flutter+%C2%B7+Next.js+%C2%B7+TypeScript;Offline-first+apps+for+Algeria;3D+on+the+web+with+three.js;Computer+Science+student" alt="Fullstack and mobile developer — Flutter, Next.js, TypeScript, offline-first apps, 3D on the web" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=27&pause=1100&color=00D9FF&center=true&vCenter=true&width=720&height=45&lines=Fullstack+and+Mobile+Developer;Flutter+%C2%B7+Next.js+%C2%B7+TypeScript;Offline-first+apps+for+Algeria;3D+on+the+web+with+three.js;Computer+Science+student" alt="Fullstack and mobile developer — Flutter, Next.js, TypeScript, offline-first apps, 3D on the web" />
 </p>
 
 <p align="center">
-  <a href="https://malikboudine.vercel.app"><img src="https://img.shields.io/badge/Portfolio-malikboudine.vercel.app-00C7FF?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0D1117" alt="Portfolio — malikboudine.vercel.app" /></a>
-  <a href="mailto:malikboudinee1e@gmail.com"><img src="https://img.shields.io/badge/Email-Say%20hello-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0D1117" alt="Email me" /></a>
-  <a href="https://github.com/Poasherkir?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/Poasherkir&query=public_repos&label=Repos&style=for-the-badge&color=00C7FF&labelColor=0D1117" alt="Public repositories" /></a>
-  <a href="https://github.com/Poasherkir?tab=followers"><img src="https://img.shields.io/github/followers/Poasherkir?label=Followers&style=for-the-badge&color=00C7FF&labelColor=0D1117" alt="Followers" /></a>
-  <img src="https://komarev.com/ghpvc/?username=Poasherkir&label=Profile%20views&color=00C7FF&style=for-the-badge" alt="Profile views" />
+  <a href="https://malikboudine.vercel.app"><img src="https://img.shields.io/badge/PORTFOLIO-malikboudine.vercel.app-00D9FF?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0D1117" alt="Portfolio — malikboudine.vercel.app" /></a>
+  <a href="mailto:malikboudinee1e@gmail.com"><img src="https://img.shields.io/badge/EMAIL-say%20hello-F72585?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0D1117" alt="Email me" /></a>
+  <a href="https://github.com/Poasherkir?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/Poasherkir&query=public_repos&label=REPOS&style=for-the-badge&color=7B2FF7&labelColor=0D1117" alt="Public repositories" /></a>
+  <a href="https://github.com/Poasherkir?tab=followers"><img src="https://img.shields.io/github/followers/Poasherkir?label=FOLLOWERS&style=for-the-badge&color=7B2FF7&labelColor=0D1117" alt="Followers" /></a>
+  <img src="https://komarev.com/ghpvc/?username=Poasherkir&label=VIEWS&color=00D9FF&style=for-the-badge" alt="Profile views" />
 </p>
 
 <p align="center">
-  <a href="#-about-me">About</a> &nbsp;·&nbsp;
-  <a href="#-how-i-work">How I Work</a> &nbsp;·&nbsp;
-  <a href="#-tech-stack">Stack</a> &nbsp;·&nbsp;
-  <a href="#-github-analytics">Analytics</a> &nbsp;·&nbsp;
-  <a href="#-contribution-graph">Contributions</a> &nbsp;·&nbsp;
-  <a href="#-lets-connect">Contact</a>
+  <a href="#-about-me"><b>About</b></a> &nbsp;•&nbsp;
+  <a href="#-how-i-work"><b>How I Work</b></a> &nbsp;•&nbsp;
+  <a href="#-tech-stack"><b>Stack</b></a> &nbsp;•&nbsp;
+  <a href="#-github-analytics"><b>Analytics</b></a> &nbsp;•&nbsp;
+  <a href="#-contribution-graph"><b>Contributions</b></a> &nbsp;•&nbsp;
+  <a href="#-lets-connect"><b>Contact</b></a>
 </p>
 
-<br />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7B2FF7,50:F72585,100:00D9FF&height=4" width="100%" alt="" />
 
 <!-- ─────────────  ABOUT ME  ───────────── -->
 ## 👋 About Me
 
-<img align="right" width="260" src="https://github.com/Poasherkir.png" alt="Malik Boudine avatar" />
+<img align="right" width="250" src="https://github.com/Poasherkir.png" alt="Malik Boudine avatar" />
 
-Computer Science student in **Algeria** 🇩🇿. I build software for the conditions
-most apps quietly assume away — no signal, a cheap Android phone, a language that
-reads right to left.
+Computer Science student in **Algeria** 🇩🇿. I build software for the conditions most
+apps quietly assume away — no signal, a cheap Android phone, a language that reads
+right to left.
 
-- 📱 &nbsp;**Flutter** for mobile — offline-first, encrypted local storage, Arabic RTL as a first-class case rather than an afterthought
-- 🌐 &nbsp;**Next.js + TypeScript** for the web — App Router, React 19, Tailwind, and three.js when the page earns it
-- 🐍 &nbsp;**Python** for the unglamorous half — importers, scrapers and one-shot migrations that move real archives around
-- 🔒 &nbsp;Some of my production work is closed-source — **Briefing Point Go**, **TechSub** and a set of aviation services that hold real user data. [Case studies on my site.](https://malikboudine.vercel.app)
-- 🤝 &nbsp;Open to internships, freelance work, and collaboration on anything offline-first
-- 📫 &nbsp;**malikboudinee1e@gmail.com**
+&nbsp;📱&nbsp; **Flutter** for mobile — offline-first, encrypted local storage, Arabic RTL as a first-class case rather than an afterthought
+
+&nbsp;🌐&nbsp; **Next.js + TypeScript** for the web — App Router, React 19, Tailwind, and three.js when the page earns it
+
+&nbsp;🐍&nbsp; **Python** for the unglamorous half — importers, scrapers and one-shot migrations that move real archives around
+
+&nbsp;🔒&nbsp; Production work that stays closed — **Briefing Point Go**, **TechSub** and a set of aviation services holding real user data. [Case studies on my site.](https://malikboudine.vercel.app)
+
+&nbsp;🤝&nbsp; Open to **internships**, **freelance work**, and anything offline-first
+
+&nbsp;📫&nbsp; **malikboudinee1e@gmail.com**
 
 <br clear="right" />
 
-<br />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:00D9FF,50:F72585,100:7B2FF7&height=4" width="100%" alt="" />
 
 <!-- ─────────────  HOW I WORK  ───────────── -->
 ## 🧭 How I Work
 
 <!--
-  This section replaces the old project catalogue. Pinned repos already show
-  *what* was built; this says *how*, which is the part a reader can't get by
-  clicking through. Keep it to five, keep every line falsifiable.
+  This replaces the old project catalogue. Pinned repos already show *what* was
+  built; this says *how*, which is what a reader can't get by clicking through.
+  Keep it to five, and keep every line falsifiable against the code.
 -->
 
-**Offline is the default, not the fallback.** &nbsp;I design as if the network will
-never arrive: sync once, then everything reads from local storage. If that storage
-holds anything personal it's encrypted at rest — SQLCipher, not a plaintext SQLite
-file with good intentions.
+> **Offline is the default, not the fallback.**
+> I design as if the network will never arrive: sync once, then everything reads from
+> local storage — encrypted at rest when it holds anything personal. SQLCipher, not a
+> plaintext SQLite file with good intentions.
 
-**Arabic and French from the first screen.** &nbsp;RTL is not a late-stage flag.
-Layouts that get it retrofitted leak somewhere — a stray `EdgeInsets.only(left:)`,
-a chevron pointing the wrong way — and every one of those leaks is a bug a user
-notices before I do.
+> **Arabic and French from the first screen.**
+> RTL is not a late-stage flag. Layouts that get it retrofitted always leak somewhere
+> — a stray `EdgeInsets.only(left:)`, a chevron pointing the wrong way — and every one
+> of those is a bug a user notices before I do.
 
-**The domain layer doesn't know the framework exists.** &nbsp;Business rules import
-nothing from Flutter, nothing from the database, nothing from an HTTP client. It
-keeps the interesting logic testable without a device, and it makes swapping the
-edges cheap.
+> **The domain layer doesn't know the framework exists.**
+> Business rules import nothing from Flutter, nothing from the database, nothing from
+> an HTTP client. The interesting logic stays testable without a device, and swapping
+> the edges stays cheap.
 
-**Tests are a gate, not a chore.** &nbsp;A strict analyzer that fails on infos, a
-schema dumped and migration-tested rather than assumed, and guards that read
-constraints back out of the database so a missing foreign key can't hide. A demo
-that only works on my machine isn't finished.
+> **Tests are a gate, not a chore.**
+> A strict analyzer that fails on infos, a schema dumped and migration-tested rather
+> than assumed, and guards that read constraints back out of the database so a missing
+> foreign key can't hide. A demo that only works on my machine isn't finished.
 
-**Build for the low end.** &nbsp;Cheap hardware and slow connections are the target,
-not the edge case. Bundle size, cold-start time and battery are features where I'm
-from.
+> **Build for the low end.**
+> Cheap hardware and slow connections are the target, not the edge case. Bundle size,
+> cold-start time and battery are features where I'm from.
 
-<br />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7B2FF7,50:F72585,100:00D9FF&height=4" width="100%" alt="" />
 
 <!-- ─────────────  TECH STACK  ───────────── -->
 ## 🧰 Tech Stack
 
 <!--
-  Kept close to what's actually shipped. A short honest stack reads far better
-  than a wall of sixty logos, and a reader who knows the field can tell.
+  skillicons.dev instead of shields rows: same information, a fraction of the
+  vertical space, and it actually looks alive. Every slug below was verified to
+  resolve — an unknown slug renders as a blank tile, so check before adding.
 
-  Not listed, because nothing here uses them yet — paste any back if that changes:
-  Java, Ruby, Vue.js, NestJS, TensorFlow, NumPy, Pandas, Seaborn,
-  AWS, Google Cloud, Azure, MySQL, Solidity.
+  Not listed, because nothing here uses them yet — add the slug if that changes:
+  java, ruby, vue, nestjs, tensorflow, aws, gcp, azure, mysql, solidity.
 -->
 
-**Languages**
+<table align="center">
+<tr><td align="center" width="150"><b>Languages</b></td><td>
+  <img src="https://skillicons.dev/icons?i=dart,ts,js,python,c&theme=dark" alt="Dart, TypeScript, JavaScript, Python, C" />
+</td></tr>
+<tr><td align="center"><b>Mobile</b></td><td>
+  <img src="https://skillicons.dev/icons?i=flutter,sqlite&theme=dark" alt="Flutter, SQLite" />
+  &nbsp;<sub>+ Riverpod · Drift · SQLCipher</sub>
+</td></tr>
+<tr><td align="center"><b>Web</b></td><td>
+  <img src="https://skillicons.dev/icons?i=nextjs,react,tailwind,threejs,html,css&theme=dark" alt="Next.js, React, Tailwind CSS, three.js, HTML, CSS" />
+  &nbsp;<sub>+ GSAP</sub>
+</td></tr>
+<tr><td align="center"><b>Backend</b></td><td>
+  <img src="https://skillicons.dev/icons?i=supabase,postgres,nodejs&theme=dark" alt="Supabase, PostgreSQL, Node.js" />
+</td></tr>
+<tr><td align="center"><b>Tooling</b></td><td>
+  <img src="https://skillicons.dev/icons?i=docker,git,githubactions,vercel,linux,powershell&theme=dark" alt="Docker, Git, GitHub Actions, Vercel, Linux, PowerShell" />
+</td></tr>
+</table>
 
-<p>
-  <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black" alt="C" />
-</p>
+<p align="center"><sub><b>Learning next</b> &nbsp;•&nbsp; deeper Flutter architecture &nbsp;•&nbsp; Postgres row-level security &nbsp;•&nbsp; React Three Fiber &nbsp;•&nbsp; container workflows past <code>docker run</code></sub></p>
 
-**Mobile**
-
-<p>
-  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
-  <img src="https://img.shields.io/badge/Riverpod-0D1117?style=for-the-badge&logo=dart&logoColor=00C7FF" alt="Riverpod" />
-  <img src="https://img.shields.io/badge/Drift-0D1117?style=for-the-badge&logo=sqlite&logoColor=00C7FF" alt="Drift" />
-  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
-</p>
-
-**Web**
-
-<p>
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="three.js" />
-  <img src="https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=black" alt="GSAP" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-</p>
-
-**Backend & Data**
-
-<p>
-  <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-</p>
-
-**Tooling & Infrastructure**
-
-<p>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions" />
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
-  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell" />
-</p>
-
-<sub>**Learning next** &nbsp;·&nbsp; deeper Flutter architecture &nbsp;·&nbsp; Postgres row-level security &nbsp;·&nbsp; React Three Fiber &nbsp;·&nbsp; container workflows past `docker run`</sub>
-
-<br />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:00D9FF,50:F72585,100:7B2FF7&height=4" width="100%" alt="" />
 
 <!-- ─────────────  GITHUB STATS  ───────────── -->
 ## 📊 GitHub Analytics
 
 <!--
-  These point at github-profile-summary-cards, verified serving real numbers.
-  Do not swap in github-readme-stats: the official instance is 503, and the
+  github-profile-summary-cards, verified serving real numbers.
+  Do NOT swap in github-readme-stats: the official instance is 503, and the
   community mirror answers 200 with an SVG reading "Maximum retries exceeded".
   The activity-graph and trophy services are both 402. See SETUP.md step 8.
 -->
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Poasherkir&theme=tokyonight" alt="Profile summary: total contributions, public repos and contribution timeline" width="98%" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Poasherkir&theme=radical" alt="Profile summary: total contributions, public repos and contribution timeline" width="98%" />
 </p>
 
 <p align="center">
-  <img height="200em" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Poasherkir&theme=tokyonight" alt="Top languages by repository" />
-  <img height="200em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Poasherkir&theme=tokyonight" alt="Most used languages by commit" />
+  <img height="195em" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Poasherkir&theme=radical" alt="Top languages by repository" />
+  <img height="195em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Poasherkir&theme=radical" alt="Most used languages by commit" />
 </p>
 
 <p align="center">
-  <img height="200em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Poasherkir&theme=tokyonight" alt="Stars, commits, pull requests and issues" />
-  <img height="200em" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Poasherkir&theme=tokyonight&utcOffset=1" alt="Commits by time of day" />
+  <img height="195em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Poasherkir&theme=radical" alt="Stars, commits, pull requests and issues" />
+  <img height="195em" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Poasherkir&theme=radical&utcOffset=1" alt="Commits by time of day" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=Poasherkir&theme=tokyonight&hide_border=true&date_format=j%20M%5B%20Y%5D" alt="Contribution streak: current and longest" />
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=Poasherkir&theme=radical&hide_border=true&background=0D1117&date_format=j%20M%5B%20Y%5D" alt="Contribution streak: current and longest" />
 </p>
 
-<br />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7B2FF7,50:F72585,100:00D9FF&height=4" width="100%" alt="" />
 
 <!-- ─────────────  CONTRIBUTION GRAPHS  ───────────── -->
 ## 🐍 Contribution Graph
@@ -210,26 +193,24 @@ from.
   </picture>
 </p>
 
-<br />
-
 <p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random developer quote" />
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random developer quote" />
 </p>
 
-<br />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:00D9FF,50:F72585,100:7B2FF7&height=4" width="100%" alt="" />
 
 <!-- ─────────────  SOCIALS  ───────────── -->
 ## 🤝 Let's Connect
 
 <p align="center">
-  Open to <strong>internships</strong>, <strong>freelance work</strong>, and collaboration on anything offline-first.<br />
-  My work is pinned below — the deployed pieces and the case studies live on my site.
+  Open to <b>internships</b>, <b>freelance work</b>, and collaboration on anything offline-first.<br />
+  My work is pinned just below — the deployed pieces and the case studies live on my site.
 </p>
 
 <p align="center">
-  <a href="https://malikboudine.vercel.app"><img src="https://img.shields.io/badge/Portfolio-00C7FF?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
-  <a href="mailto:malikboudinee1e@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-  <a href="https://github.com/Poasherkir"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://malikboudine.vercel.app"><img src="https://img.shields.io/badge/PORTFOLIO-00D9FF?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0D1117" alt="Portfolio" /></a>
+  <a href="mailto:malikboudinee1e@gmail.com"><img src="https://img.shields.io/badge/EMAIL-F72585?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0D1117" alt="Email" /></a>
+  <a href="https://github.com/Poasherkir"><img src="https://img.shields.io/badge/GITHUB-7B2FF7?style=for-the-badge&logo=github&logoColor=white&labelColor=0D1117" alt="GitHub" /></a>
 </p>
 
 <!--
@@ -237,10 +218,10 @@ from.
   than shipping dead placeholder links — a badge pointing at
   linkedin.com/in/YOUR-HANDLE is worse than no badge.
 
-  <a href="https://linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://x.com/YOUR-HANDLE"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
+  <a href="https://linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0D1117" alt="LinkedIn" /></a>
+  <a href="https://x.com/YOUR-HANDLE"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white&labelColor=0D1117" alt="X" /></a>
 -->
 
 <p align="center"><sub>Thanks for scrolling this far. If something here is useful to you, say hello.</sub></p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C7FF,50:2C5364,100:0F2027&height=120&section=footer" alt="" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,30:F72585,65:302B63,100:0F0C29&height=140&section=footer" alt="" width="100%" />
