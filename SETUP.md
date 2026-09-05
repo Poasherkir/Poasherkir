@@ -1,9 +1,9 @@
-# Setup — how to make this your GitHub profile
+# Setup & maintenance — the profile README
 
 ## 1. & 2. Repository created and pushed ✅
 
-Already done for you. The repo is https://github.com/Poasherkir/Poasherkir and the
-README is live on your profile.
+The repo is https://github.com/Poasherkir/Poasherkir and the README is live on your
+profile.
 
 For reference, the reason the name matters: GitHub only renders a README on your
 profile page if it lives in a **public repository named exactly your username**.
@@ -14,148 +14,151 @@ The steps below are the parts I can't do from here — they need your browser.
 ## 3. Turn on private contribution counting
 
 The stats and streak cards can only see what the API exposes. By default that
-excludes private repos, which for a new account means everything reads as zero.
+excludes private repos, so private work reads as zero.
 
 Go to **Settings → Profile** and tick
 **"Include private contributions on my profile"**:
 https://github.com/settings/profile
 
-The README already passes `count_private=true` and `include_all_commits=true`, so
-once that box is ticked the numbers fill in on their own.
+Worth doing: a good share of your real work lives in closed repos
+(Briefing Point Go, TechSub, the aviation services), and none of it shows up in the
+contribution graph until this box is ticked.
 
-## 4. Run the snake workflow once
+## 4. The two contribution workflows ✅
 
-Actions are not allowed to write to your repo until you permit it:
+Both are running and both are green — nothing to do here.
 
-1. Repo → **Settings → Actions → General**
-2. Under **Workflow permissions**, choose **Read and write permissions** → Save
-3. Repo → **Actions** tab → **Generate contribution snake** → **Run workflow**
+| Workflow | Writes to | Used by the README as |
+| :-- | :-- | :-- |
+| `snake.yml` | `output` branch | the animated snake, via absolute `raw.githubusercontent.com` URLs |
+| `3d-contrib.yml` | `profile-3d-contrib/` on `main` | the 3D calendar, via relative paths |
 
-It creates an `output` branch holding the SVGs. After that it re-runs itself every
-12 hours, so the animation stays current with no work from you.
+Both re-run on a schedule, so both graphics stay current with no work from you.
 
-The 3D calendar workflow (`3d-contrib.yml`) works the same way but writes into a
-`profile-3d-contrib/` folder on `main`. It is not referenced in the README yet — if
-you want it, run it once and then add:
+The 3D calendar is committed **into this repo**, which means it can't break the way
+a third-party image service can. The README uses `profile-night-rainbow.svg` in dark
+mode and `profile-green.svg` in light mode; nine other variants sit in the same
+folder if you want a different look — just swap the filenames in the `<picture>`
+block.
 
-```md
-<p align="center">
-  <img src="./profile-3d-contrib/profile-night-rainbow.svg" alt="3D contribution calendar" />
-</p>
-```
+## 5. What still says EDIT
 
-If you'd rather not have it, delete `.github/workflows/3d-contrib.yml`.
-
-## 5. Fill in the placeholders
-
-Search the README for `EDIT` — every spot needing your input is marked:
+The README is now filled in from your real repos, so only two spots are left marked:
 
 | Where | What to change |
 | :-- | :-- |
-| About Me | The six bullets. Make them true — this is the part people actually read. |
-| Tech Stack | **Delete** badges for things you don't use. See the note below. |
-| Featured Projects | Uncomment the cards and use real repo names once you have some. |
-| Learning Roadmap | Move rows between ✅ / 🔄 / 🔜 to match reality. |
-| Let's Connect | Optional — LinkedIn/X/Discord badges are commented out. Uncomment and fill in only the ones you actually use. |
+| Currently Building | Three rows with live status. Update them when a milestone moves — this is the section return visitors re-read. |
+| Let's Connect | LinkedIn / X badges are commented out. Uncomment and fill in only the ones you actually use. |
+
+There's also a commented list in **Tech Stack** naming the badges that were removed
+(Java, Ruby, Vue, NestJS, TensorFlow, NumPy, Pandas, Seaborn, Docker, AWS, GCP,
+Azure, MySQL, Solidity). Nothing on this account uses them yet — paste any back if
+that changes.
 
 ## 6. Pin your best repositories
 
-The Featured Projects cards complement GitHub's own pinning — they don't replace it.
-On your profile, click **Customize your pins** and choose up to six.
+The Featured Projects section complements GitHub's own pinning — it doesn't replace
+it. On your profile, click **Customize your pins** and choose:
+
+`delivery-os` · `bac-archive` · `portfolio` · `Playlist` · `wordle-solver`
+
+## 7. Add topics to the repos that have none
+
+`portfolio` and `bac-archive` have good topic lists. These three have none, which
+costs you GitHub search visibility for free:
+
+| Repo | Suggested topics |
+| :-- | :-- |
+| `delivery-os` | `flutter` `dart` `offline-first` `riverpod` `drift` `sqlcipher` `algeria` `rtl` |
+| `Playlist` | `powershell` `youtube-dl` `windows` `downloader` |
+| `wordle-solver` | `c` `wordle` `solver` `algorithms` |
+
+Repo → **About** (gear icon, top right) → **Topics**.
 
 ---
 
-## 7. Recommended: host your own stats cards
+## 8. Image services: what works, what doesn't
 
-I tested every image URL in the README before shipping it. Here is what came back:
+Every image URL in the README was re-tested immediately before the last commit.
+This landscape changes often — several services that worked when this file was
+first written have since broken, and one that was broken now works.
+
+### Currently used, verified serving real data
 
 | Service | Status |
 | :-- | :-- |
-| Typing SVG (`readme-typing-svg.demolab.com`) | ✅ 200 |
+| `github-profile-summary-cards.vercel.app` (5 cards) | ✅ 200, real numbers |
 | Streak (`github-readme-streak-stats.herokuapp.com`) | ✅ 200 |
-| Activity graph | ✅ 200 |
 | Capsule-render header/footer | ✅ 200 |
-| Dev quote | ✅ 200 |
+| Dev quote (`quotes-github-readme.vercel.app`) | ✅ 200 |
 | Visitor counter, shields.io badges, avatar | ✅ 200 |
-| Stats + top-languages (`…-sigma-five.vercel.app` mirror) | ✅ 200, real data |
-| ~~Stats~~ (official `github-readme-stats.vercel.app`) | ❌ **503 DEPLOYMENT_PAUSED** |
+| Snake SVGs (`output` branch) | ✅ 200, self-hosted |
+| 3D calendar (`profile-3d-contrib/`) | ✅ in-repo, can't break |
+| Typing SVG (`readme-typing-svg.demolab.com`) | ⚠️ 200, but rate-limits aggressively — see below |
+
+### Deliberately not used
+
+| Service | Status |
+| :-- | :-- |
+| ~~Stats + top-langs~~ (official `github-readme-stats.vercel.app`) | ❌ **503 DEPLOYMENT_PAUSED** |
+| ~~Stats mirror~~ (`…-sigma-five.vercel.app`) | ❌ 200 with an error card: *"Maximum retries exceeded — add PAT_1"* |
+| ~~Repo pin cards~~ (same host as stats) | ❌ 503 — this is why Featured Projects is hand-written |
+| ~~Activity graph~~ (`github-readme-activity-graph.vercel.app`) | ❌ **402** — Vercel spending limit exhausted |
 | ~~Trophy wall~~ (`github-profile-trophy.vercel.app`) | ❌ **402** |
-| ~~`github-profile-summary-cards`~~ | ❌ 200 but body is "rate limited" error |
+| ~~Contributor stats~~ | ❌ **402** |
 
-Two of the most-recommended services are simply broken right now, which is why the
-README doesn't use them:
+Three of these answer with an HTTP status a link checker calls fine while rendering
+as a broken or error image to a human. The stats mirror is the worst offender: a
+`200 OK` SVG whose only content is the words "Something went wrong".
 
-- **The official stats instance returns `DEPLOYMENT_PAUSED`.** Not a rate limit —
-  the deployment is switched off. Every profile using the standard
-  `github-readme-stats.vercel.app` URL currently shows two broken images.
-- **The trophy wall returns 402**, meaning its Vercel spending limit is exhausted.
-  It's commented out in the README.
-- **`github-profile-summary-cards`** is the sneakiest: it answers `200 OK` with an
-  SVG that just says "Cards are temporarily rate limited." It looks fine to a link
-  checker and broken to a human.
+**The typing SVG** is the one soft spot left. It serves correctly but starts
+refusing connections after a handful of requests in quick succession. A visitor
+loading your profile once is well inside its limits; it's automated testing that
+trips it. If you ever see it render blank, replace the whole `<p align="center">`
+block with plain text:
 
-Your stats cards therefore point at `github-readme-stats-sigma-five.vercel.app`, a
-community mirror of the same project that I verified is serving your real numbers.
-It works today, but it's someone else's hobby deployment and could go the same way.
+```md
+<p align="center"><em>Fullstack &amp; mobile developer · Flutter · Next.js · offline-first apps for Algeria</em></p>
+```
 
-**The durable fix is your own deployment** — five minutes, free, and it can never be
-rate-limited because you're its only user:
+### The durable fix for stats cards
+
+If you want the classic `github-readme-stats` cards back, deploy your own — five
+minutes, free, and it can never be rate-limited because you're its only user:
 
 1. Fork https://github.com/anuraghazra/github-readme-stats
-2. Create a GitHub personal access token with **no scopes** at
-   https://github.com/settings/tokens (a classic token, nothing ticked — it only
-   needs to lift the anonymous API rate limit)
-3. Import the fork at https://vercel.com/new, add an environment variable
-   `PAT_1` set to that token, and deploy
-4. In the README, replace both occurrences of
-   `github-readme-stats-sigma-five.vercel.app` with your own `your-project.vercel.app`
+2. Create a **classic** personal access token with **no scopes ticked** at
+   https://github.com/settings/tokens (it only needs to lift the anonymous API
+   rate limit)
+3. Import the fork at https://vercel.com/new, add an environment variable `PAT_1`
+   set to that token, and deploy
+4. Point the README at `your-project.vercel.app` instead
 
-Your cards then load every time, and the trophy wall can be revived the same way by
-deploying `ryo-ma/github-profile-trophy`.
+The trophy wall can be revived the same way by deploying `ryo-ma/github-profile-trophy`.
 
 ---
 
-## Notes on what I changed from the original list
+## 9. Notes on some choices
 
-**Dead and duplicate services.** `readme-typing-svg.herokuapp.com` stopped working
-when Heroku ended its free tier; the maintained host is `readme-typing-svg.demolab.com`.
+**Featured Projects is hand-written, not image cards.** The pin-card service is down
+(503), so image cards would render broken for every visitor. Hand-written links also
+carry more information — stack, status, live URLs — and read properly on a phone,
+where a 495px-wide SVG card does not.
 
-For the streak card I used `github-readme-streak-stats.herokuapp.com` rather than the
-`streak-stats.demolab.com` you'll see in most guides. Both belong to the same project;
-I could only verify the herokuapp one responding from here, so that's what shipped. If
-it ever breaks, swapping in the demolab hostname is a drop-in replacement — the query
-parameters are identical.
+**The stack is trimmed to what's in the repos.** Every badge is backed by shipped
+code. A wall of sixty logos where four are real is the single most common way a
+profile README loses a reader who knows what they're looking at.
 
-**Skipped: the ASCII skill bars.** Percentages like "Python ██████████ 90%" are
-self-assigned and every experienced reader knows it. The roadmap table says the same
-thing honestly, and the top-languages card says it with real data.
+**Skipped: ASCII skill bars.** Percentages like "Python ██████████ 90%" are
+self-assigned and every experienced reader knows it. The language cards say the same
+thing with real data.
 
-**Skipped: WakaTime and Spotify.** Both need external accounts and a token in repo
-secrets, and a WakaTime block that reads "0 hrs this week" hurts more than it helps.
-Worth adding later once you're coding daily — say the word and I'll wire them up.
+**Skipped: WakaTime and Spotify.** Both need external accounts plus a token in repo
+secrets. Worth adding once you're coding daily — say the word and I'll wire them up.
 
-**Replaced the Giphy banner** with a `capsule-render` gradient header. A random
-looping GIF dates a profile fast; the gradient matches the accent colour used
-everywhere else.
+**Theme awareness.** The snake and the 3D calendar both use `<picture>` with
+`prefers-color-scheme`, so light-mode visitors don't get a dark rectangle floating
+on a white page.
 
-**Added theme awareness.** The snake uses a `<picture>` element with
-`prefers-color-scheme`, so visitors in light mode get a light SVG instead of a dark
-rectangle floating on a white page.
-
-**Added `cache_seconds=86400` and `hide_border=true`.** A long cache makes the stats
-cards far more likely to load off the shared instance. See step 7 for the real fix.
-
-**Added `alt` text everywhere.** Screen readers, and a graceful fallback when a card
-service is down.
-
----
-
-## One honest caveat
-
-Your account currently has **0 public repositories and 0 followers**. The stats,
-streak, trophy and activity cards will all render as empty or zero until you push
-real work — the trophy wall in particular will show nothing but "Unranked".
-
-That isn't a problem with the README. Ship two or three projects you care about,
-pin them, and this profile fills itself in. Until then, consider commenting out the
-trophy and Featured Projects sections so the page doesn't advertise the emptiness.
+**`alt` text everywhere.** Screen readers, and a graceful fallback whenever one of
+the services above has its next bad day.
