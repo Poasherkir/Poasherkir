@@ -63,9 +63,8 @@ click **Customize your pins** and choose up to six:
 `delivery-os` · `bac-archive` · `portfolio` · `Playlist` · `wordle-solver` · `qahwa-books`
 
 Pins pull their own description and language straight from each repo, so they never
-drift out of date the way a hand-written list does. That also means a repo with a
-blank description wastes its slot — `wordle-solver` is the last one still missing
-a description (repo → **About** → gear icon).
+drift out of date the way a hand-written list does. All six repos now carry a
+description, so no pinned card renders with a blank subtitle.
 
 Note that `Poasherkir` — this repo — is worth *unpinning*. It holds the profile
 README, not a project, so it spends a slot showing nothing built.
