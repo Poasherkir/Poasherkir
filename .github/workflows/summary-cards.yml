@@ -1,0 +1,45 @@
+name: Generate profile summary cards
+
+# Self-hosts the five github-profile-summary-cards SVGs into this repo, the same
+# way 3d-contrib.yml does for the 3D calendar. The public API for these cards
+# rate-limits under load and answers 200 with an "ERROR!!!" card, which is what
+# the README was showing before this existed. Files committed here can't do that.
+#
+# Runs at 06:00 UTC, deliberately away from the 3D calendar (18:00) and the
+# snake (00:00 / 12:00) so the three never push to main at the same moment.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate summary card SVGs
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          NAME: "Malik Boudine"
+          BRANCH_NAME: main
+          UTC_OFFSET: 1
+          THEME: radical
+          ANIMATION: load
+          AUTO_PUSH: false
+
+      - name: Commit the generated images
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A profile-summary-card-output
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: refresh profile summary cards"
+          git pull --rebase origin main
+          git push
