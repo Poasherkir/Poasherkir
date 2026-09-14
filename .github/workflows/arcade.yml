@@ -1,0 +1,36 @@
+name: Generate arcade contribution graphs
+
+# Pac-Man and Breakout animations over the contribution grid, generated the
+# same way as the snake. They get their own `arcade` branch on purpose: the
+# push step replaces the whole target branch with dist/, so sharing `output`
+# with snake.yml would have each workflow wiping the other's files.
+
+on:
+  schedule:
+    - cron: "30 6 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+
+    steps:
+      - name: Generate game SVGs
+        uses: abozanona/pacman-contribution-graph@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          games: "pacman,breakout"
+
+      - name: Push to the arcade branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: arcade
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
