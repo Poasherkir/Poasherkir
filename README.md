@@ -6,27 +6,22 @@
   PALETTE (keep these three in sync everywhere):
     violet  #7B2FF7      pink  #F72585      cyan  #00D9FF
     ground  #0D1117 (GitHub dark)
-  Card services all use theme=radical, which is built on the same
-  pink/cyan pair — swap the theme and the page stops matching.
+  Card services use theme=radical, built on the same pink/cyan pair.
+
+  The header, footer and section dividers are hand-authored animated
+  SVGs in assets/ — nebula, starfield, shooting stars, a ringed planet.
+  Pure SVG + CSS keyframes, so they animate inside a README <img> and
+  never touch a third-party service. The name, subtitle and the five
+  rotating taglines are plain <text> elements in assets/header.svg;
+  edit them there.
 
   Deliberately contains no repo listings. GitHub's pinned
   repositories render directly below and stay current on their own.
-
-  GOTCHAS, both learned the hard way — see SETUP.md step 8:
-   1. Never put a raw "&" (%26) in a capsule-render text=/desc=.
-      It interpolates unescaped, producing invalid XML that browsers
-      refuse to render while curl still reports a healthy 200.
-   2. readme-typing-svg takes ONE colour. A comma-separated list is
-      silently ignored and it falls back to default blue.
   ===============================================================
 -->
 
 <!-- ─────────────  HEADER  ───────────── -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F0C29,35:302B63,70:F72585,100:00D9FF&height=210&section=header&text=Malik%20Boudine&fontSize=54&fontColor=ffffff&fontAlignY=34&desc=Fullstack%20and%20Mobile%20Developer%20%C2%B7%20Flutter%20%C2%B7%20Next.js&descAlignY=54&descSize=18&animation=fadeIn" alt="Malik Boudine — Fullstack and Mobile Developer" width="100%" />
-
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=27&pause=1100&color=00D9FF&center=true&vCenter=true&width=720&height=45&lines=Fullstack+and+Mobile+Developer;Flutter+%C2%B7+Next.js+%C2%B7+TypeScript;Offline-first+apps+for+Algeria;3D+on+the+web+with+three.js;Computer+Science+student" alt="Fullstack and mobile developer — Flutter, Next.js, TypeScript, offline-first apps, 3D on the web" />
-</p>
+<img src="./assets/header.svg" alt="Malik Boudine — Fullstack and Mobile Developer" width="100%" />
 
 <p align="center">
   <a href="https://malikboudine.vercel.app"><img src="https://img.shields.io/badge/PORTFOLIO-malikboudine.vercel.app-00D9FF?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0D1117" alt="Portfolio — malikboudine.vercel.app" /></a>
@@ -37,18 +32,18 @@
 </p>
 
 <p align="center">
-  <a href="#-about-me"><b>About</b></a> &nbsp;•&nbsp;
-  <a href="#-how-i-work"><b>How I Work</b></a> &nbsp;•&nbsp;
-  <a href="#-tech-stack"><b>Stack</b></a> &nbsp;•&nbsp;
-  <a href="#-github-analytics"><b>Analytics</b></a> &nbsp;•&nbsp;
-  <a href="#-contribution-graph"><b>Contributions</b></a> &nbsp;•&nbsp;
+  <a href="#-about-me"><b>About</b></a> &nbsp;✦&nbsp;
+  <a href="#-how-i-work"><b>How I Work</b></a> &nbsp;✦&nbsp;
+  <a href="#-tech-stack"><b>Stack</b></a> &nbsp;✦&nbsp;
+  <a href="#-github-analytics"><b>Analytics</b></a> &nbsp;✦&nbsp;
+  <a href="#-contribution-graph"><b>Contributions</b></a> &nbsp;✦&nbsp;
   <a href="#-lets-connect"><b>Contact</b></a>
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7B2FF7,50:F72585,100:00D9FF&height=4" width="100%" alt="" />
+<img src="./assets/divider.svg" width="100%" alt="" />
 
 <!-- ─────────────  ABOUT ME  ───────────── -->
-## 👋 About Me
+## 🪐 About Me
 
 <img align="right" width="250" src="https://github.com/Poasherkir.png" alt="Malik Boudine avatar" />
 
@@ -70,10 +65,10 @@ right to left.
 
 <br clear="right" />
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:00D9FF,50:F72585,100:7B2FF7&height=4" width="100%" alt="" />
+<img src="./assets/divider.svg" width="100%" alt="" />
 
 <!-- ─────────────  HOW I WORK  ───────────── -->
-## 🧭 How I Work
+## 🛸 How I Work
 
 <!--
   This replaces the old project catalogue. Pinned repos already show *what* was
@@ -105,46 +100,45 @@ right to left.
 > Cheap hardware and slow connections are the target, not the edge case. Bundle size,
 > cold-start time and battery are features where I'm from.
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7B2FF7,50:F72585,100:00D9FF&height=4" width="100%" alt="" />
+<img src="./assets/divider.svg" width="100%" alt="" />
 
 <!-- ─────────────  TECH STACK  ───────────── -->
-## 🧰 Tech Stack
+## 🚀 Tech Stack
 
 <!--
-  skillicons.dev instead of shields rows: same information, a fraction of the
-  vertical space, and it actually looks alive. Every slug below was verified to
-  resolve — an unknown slug renders as a blank tile, so check before adding.
-
-  Not listed, because nothing here uses them yet — add the slug if that changes:
-  java, ruby, vue, nestjs, tensorflow, aws, gcp, azure, mysql, solidity.
+  Icon strips are skillicons.dev renders, saved into assets/stack/ so the
+  section keeps working when that host is slow or unreachable (it was, once).
+  To add a tool: fetch  https://skillicons.dev/icons?i=<slugs>&theme=dark
+  and save it over the relevant file. Slugs not shown because nothing here
+  uses them yet: java, ruby, vue, nestjs, tensorflow, aws, gcp, azure, mysql.
 -->
 
 <table align="center">
 <tr><td align="center" width="150"><b>Languages</b></td><td>
-  <img src="https://skillicons.dev/icons?i=dart,ts,js,python,c&theme=dark" alt="Dart, TypeScript, JavaScript, Python, C" />
+  <img src="./assets/stack/languages.svg" alt="Dart, TypeScript, JavaScript, Python, C" />
 </td></tr>
 <tr><td align="center"><b>Mobile</b></td><td>
-  <img src="https://skillicons.dev/icons?i=flutter,sqlite&theme=dark" alt="Flutter, SQLite" />
+  <img src="./assets/stack/mobile.svg" alt="Flutter, SQLite" />
   &nbsp;<sub>+ Riverpod · Drift · SQLCipher</sub>
 </td></tr>
 <tr><td align="center"><b>Web</b></td><td>
-  <img src="https://skillicons.dev/icons?i=nextjs,react,tailwind,threejs,html,css&theme=dark" alt="Next.js, React, Tailwind CSS, three.js, HTML, CSS" />
+  <img src="./assets/stack/web.svg" alt="Next.js, React, Tailwind CSS, three.js, HTML, CSS" />
   &nbsp;<sub>+ GSAP</sub>
 </td></tr>
 <tr><td align="center"><b>Backend</b></td><td>
-  <img src="https://skillicons.dev/icons?i=supabase,postgres,nodejs&theme=dark" alt="Supabase, PostgreSQL, Node.js" />
+  <img src="./assets/stack/backend.svg" alt="Supabase, PostgreSQL, Node.js" />
 </td></tr>
 <tr><td align="center"><b>Tooling</b></td><td>
-  <img src="https://skillicons.dev/icons?i=docker,git,githubactions,vercel,linux,powershell&theme=dark" alt="Docker, Git, GitHub Actions, Vercel, Linux, PowerShell" />
+  <img src="./assets/stack/tooling.svg" alt="Docker, Git, GitHub Actions, Vercel, Linux, PowerShell" />
 </td></tr>
 </table>
 
 <p align="center"><sub><b>Learning next</b> &nbsp;•&nbsp; deeper Flutter architecture &nbsp;•&nbsp; Postgres row-level security &nbsp;•&nbsp; React Three Fiber &nbsp;•&nbsp; container workflows past <code>docker run</code></sub></p>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:00D9FF,50:F72585,100:7B2FF7&height=4" width="100%" alt="" />
+<img src="./assets/divider.svg" width="100%" alt="" />
 
 <!-- ─────────────  GITHUB STATS  ───────────── -->
-## 📊 GitHub Analytics
+## 🔭 GitHub Analytics
 
 <!--
   Every card here is an SVG committed to this repo by
@@ -177,10 +171,10 @@ right to left.
 
 <p align="center"><sub>Every card above is generated by a workflow in this repository and refreshed daily — no third-party image service in the loop.</sub></p>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7B2FF7,50:F72585,100:00D9FF&height=4" width="100%" alt="" />
+<img src="./assets/divider.svg" width="100%" alt="" />
 
 <!-- ─────────────  CONTRIBUTION GRAPHS  ───────────── -->
-## 🎮 Contribution Graph
+## 🌌 Contribution Graph
 
 <!--
   Three views of the same year of commits, each built by a workflow here:
@@ -213,10 +207,10 @@ right to left.
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random developer quote" />
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:00D9FF,50:F72585,100:7B2FF7&height=4" width="100%" alt="" />
+<img src="./assets/divider.svg" width="100%" alt="" />
 
 <!-- ─────────────  SOCIALS  ───────────── -->
-## 🤝 Let's Connect
+## 📡 Let's Connect
 
 <p align="center">
   Open to <b>internships</b>, <b>freelance work</b>, and collaboration on anything offline-first.<br />
@@ -238,6 +232,6 @@ right to left.
   <a href="https://x.com/YOUR-HANDLE"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white&labelColor=0D1117" alt="X" /></a>
 -->
 
-<p align="center"><sub>Thanks for scrolling this far. If something here is useful to you, say hello.</sub></p>
+<p align="center"><sub>End of transmission. If something here is useful to you, say hello.</sub></p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,30:F72585,65:302B63,100:0F0C29&height=140&section=footer" alt="" width="100%" />
+<img src="./assets/footer.svg" alt="" width="100%" />

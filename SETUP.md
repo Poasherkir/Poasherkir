@@ -116,12 +116,12 @@ workflow now is.
 | Analytics cards (`profile-summary-card-output/`) | ✅ in-repo, can't break |
 | Pac-Man (`arcade` branch) | ✅ 200, self-hosted |
 | Streak (`github-readme-streak-stats.herokuapp.com`) | ✅ 200 |
-| Capsule-render header/footer | ✅ 200 |
+| Header, footer, dividers (`assets/*.svg`) | ✅ in-repo, hand-authored, can't break |
+| Stack icon strips (`assets/stack/*.svg`) | ✅ in-repo copies of skillicons.dev renders, can't break |
 | Dev quote (`quotes-github-readme.vercel.app`) | ✅ 200 |
 | Visitor counter, shields.io badges, avatar | ✅ 200 |
 | Snake SVGs (`output` branch) | ✅ 200, self-hosted |
 | 3D calendar (`profile-3d-contrib/`) | ✅ in-repo, can't break |
-| Typing SVG (`readme-typing-svg.demolab.com`) | ⚠️ 200, but rate-limits aggressively — see below |
 
 ### Deliberately not used
 
@@ -134,43 +134,34 @@ workflow now is.
 | ~~Activity graph~~ (`github-readme-activity-graph.vercel.app`) | ❌ **402** — Vercel spending limit exhausted |
 | ~~Trophy wall~~ (`github-profile-trophy.vercel.app`) | ❌ **402** |
 | ~~Contributor stats~~ | ❌ **402** |
+| ~~Typing SVG~~ (`readme-typing-svg.demolab.com`) | ⚠️ works, but rate-limits after a few requests and then renders as a blank gap — replaced by the taglines baked into `assets/header.svg` |
+| ~~skillicons.dev~~ (live) | ⚠️ works, but was unreachable for a stretch — strips are now saved into `assets/stack/`; refetch one only when adding a tool |
+| ~~Capsule-render~~ (header/footer/dividers) | ⚠️ works, but interpolates `text=`/`desc=` into the SVG unescaped: a `%26` becomes a bare `&`, the XML is invalid, browsers render alt text while `curl` reports 200 — replaced by `assets/` |
 
 Four of these answer with an HTTP status a link checker calls fine while rendering
 as a broken or error image to a human. The stats mirror is the worst offender: a
 `200 OK` SVG whose only content is the words "Something went wrong".
 
-### The capsule-render ampersand trap
+### The space header, footer and dividers
 
-Worth writing down, because no link checker will ever catch it:
-**never put a raw `&` (`%26`) in a capsule-render `text=` or `desc=` parameter.**
+`assets/header.svg`, `assets/footer.svg` and `assets/divider.svg` are hand-authored:
+a deep-space gradient, three drifting nebulae in the palette colours, a three-layer
+twinkling starfield, two shooting stars, a ringed planet and a distant moon. The
+footer is a planet horizon; the divider is a thin gradient line with a comet that
+travels along it. Everything is pure SVG plus CSS `@keyframes`, which run inside a
+README `<img>` (JavaScript would not). No fonts or images are fetched — the files
+are fully self-contained, so they render identically through GitHub's image proxy.
 
-capsule-render interpolates those values into the SVG without escaping them, so
-`%26` comes back as a bare `&` — an invalid XML token. Browsers reject the entire
-document and render the alt text; `curl` reports a perfectly healthy `200` with a
-2.6 KB body that looks like valid SVG. That's exactly what happened to the header
-banner: it passed every status check and was still broken on the live page.
+To change the name, the subtitle or the five rotating taglines, edit the `<text>`
+elements near the bottom of `assets/header.svg`. Each tagline is visible for about
+three seconds of a fifteen-second cycle; keep them under ~45 characters so they fit
+at phone width.
 
-The tell, if a banner ever renders as alt text again:
+Two rules for editing any of them: keep every `&` written as `&amp;` (raw `&` is the
+exact bug that broke the old header), and re-run the XML check below after saving.
 
 ```bash
-curl -s "<the capsule-render url>" -o /tmp/h.svg
-python -c "import xml.dom.minidom;xml.dom.minidom.parse('/tmp/h.svg');print('XML OK')"
-```
-
-`not well-formed (invalid token)` means an unescaped character got through. Reword to
-avoid it — the current header uses "Fullstack and Mobile Developer" for this reason.
-The same applies to `<`, `>` and `"`.
-
-### The typing SVG
-
-**The typing SVG** is the one soft spot left. It serves correctly but starts
-refusing connections after a handful of requests in quick succession. A visitor
-loading your profile once is well inside its limits; it's automated testing that
-trips it. If you ever see it render blank, replace the whole `<p align="center">`
-block with plain text:
-
-```md
-<p align="center"><em>Fullstack &amp; mobile developer · Flutter · Next.js · offline-first apps for Algeria</em></p>
+python -c "import xml.dom.minidom;xml.dom.minidom.parse('assets/header.svg');print('XML OK')"
 ```
 
 ### The durable fix for stats cards
