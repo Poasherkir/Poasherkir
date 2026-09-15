@@ -26,7 +26,6 @@
 <p align="center">
   <a href="https://malikboudine.vercel.app"><img src="https://img.shields.io/badge/PORTFOLIO-malikboudine.vercel.app-00D9FF?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0D1117" alt="Portfolio — malikboudine.vercel.app" /></a>
   <a href="mailto:malikboudinee1e@gmail.com"><img src="https://img.shields.io/badge/EMAIL-say%20hello-F72585?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0D1117" alt="Email me" /></a>
-  <a href="https://github.com/Poasherkir?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/Poasherkir&query=public_repos&label=REPOS&style=for-the-badge&color=7B2FF7&labelColor=0D1117" alt="Public repositories" /></a>
   <a href="https://github.com/Poasherkir?tab=followers"><img src="https://img.shields.io/github/followers/Poasherkir?label=FOLLOWERS&style=for-the-badge&color=7B2FF7&labelColor=0D1117" alt="Followers" /></a>
   <img src="https://komarev.com/ghpvc/?username=Poasherkir&label=VIEWS&color=00D9FF&style=for-the-badge" alt="Profile views" />
 </p>
