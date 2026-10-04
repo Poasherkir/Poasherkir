@@ -1,12 +1,7 @@
 name: Generate profile summary cards
 
-# Self-hosts the five github-profile-summary-cards SVGs into this repo, the same
-# way 3d-contrib.yml does for the 3D calendar. The public API for these cards
-# rate-limits under load and answers 200 with an "ERROR!!!" card, which is what
-# the README was showing before this existed. Files committed here can't do that.
-#
-# Runs at 06:00 UTC, deliberately away from the 3D calendar (18:00) and the
-# snake (00:00 / 12:00) so the three never push to main at the same moment.
+# Saves the stats cards into this repo, so the README never shows a
+# rate-limit error card from the public API.
 
 on:
   schedule:
