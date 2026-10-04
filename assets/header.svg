@@ -322,9 +322,9 @@
     <text x="600" y="200" font-size="22" font-weight="500" fill="#D7DEE8" letter-spacing="3">FULLSTACK &#183; MOBILE &#183; FLUTTER &#183; NEXT.JS</text>
     <text class="tag" x="600" y="262" text-anchor="middle" style="animation-delay:0s">Computer Science student · Algeria</text>
     <text class="tag" x="600" y="262" text-anchor="middle" style="animation-delay:3s">Flutter · Next.js · TypeScript</text>
-    <text class="tag" x="600" y="262" text-anchor="middle" style="animation-delay:6s">Offline-first apps for real-world networks</text>
-    <text class="tag" x="600" y="262" text-anchor="middle" style="animation-delay:9s">3D on the web with three.js</text>
-    <text class="tag" x="600" y="262" text-anchor="middle" style="animation-delay:12s">Arabic RTL from the first screen</text>
+    <text class="tag" x="600" y="262" text-anchor="middle" style="animation-delay:6s">Apps that work without internet</text>
+    <text class="tag" x="600" y="262" text-anchor="middle" style="animation-delay:9s">Websites, sometimes in 3D</text>
+    <text class="tag" x="600" y="262" text-anchor="middle" style="animation-delay:12s">Arabic and French from day one</text>
   </g>
   </g>
 </svg>

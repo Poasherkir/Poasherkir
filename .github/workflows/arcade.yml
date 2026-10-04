@@ -1,9 +1,7 @@
 name: Generate arcade contribution graphs
 
-# Pac-Man and Breakout animations over the contribution grid, generated the
-# same way as the snake. They get their own `arcade` branch on purpose: the
-# push step replaces the whole target branch with dist/, so sharing `output`
-# with snake.yml would have each workflow wiping the other's files.
+# Pac-Man and Breakout. Separate branch from the snake, since the push step
+# wipes the whole target branch.
 
 on:
   schedule:
